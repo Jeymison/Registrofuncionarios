@@ -130,6 +130,7 @@ int main() // Definindo a Linguagem
      	printf("\t1 - Incluir Funcionário\n");
        	printf("\t2 - Consultar Funcionário\n");
 	    printf("\t3 - Excluir Funcionário\n\n");
+	    printf("\t4 - Sair do Sistema\n\n");
 	    printf("Opção:"); // Fim do Menu
 	
 	    scanf("%d", &opcao); // Armazenando a escolha do usuario 
@@ -150,6 +151,11 @@ int main() // Definindo a Linguagem
 		    case 3:
 		    excluir();	
 		    break; // Break encerra cada opção
+		    
+		    case 4:
+		    printf("Obrigado por utilizar o sistema!\n");
+		    return 0;
+		    break;
 		    
 		    default:
 		    printf("Essa opção não está disponivel!\n"); // Informando o usuario 
