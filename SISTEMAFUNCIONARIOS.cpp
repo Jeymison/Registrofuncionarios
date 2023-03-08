@@ -114,57 +114,69 @@ int excluir()
 }
 
 int main() // Definindo a Linguagem
-{
+    { 
 	int opcao=0; // Definindo as variaveis
 	int laco=1; // Definindo a repetição
+	char senhadigitada[10]= "a"; // String para o usuario criar a senha
+	int comparacao; // Comparar a Char senhadigitada
+				
+	printf("### Sistema de Controle de Funcionarios ###\n\n");
+	printf("Seja bem vindo!\n\n");
+	printf("Login de Administrador!\n\nDigite sua senha: "); // Colhendo os dados do usuario/ informando que é Login administrador
+	scanf("%s", senhadigitada); // Armazenando os dados de senha do usuario na string
 	
-	for(laco=1;laco=1;) // Inicio do processo de repetição
+	comparacao = strcmp(senhadigitada, "admin"); //strcmp significa comparação de strings
+	
+	if(comparacao == 0)
 	{
-	
-	    system("cls"); // CLS serve para limpar a tela
-	
-		setlocale(LC_ALL, "Portuguese"); // Definindo a linguagem
-	
-	    printf("### Sistema de Controle de Funcionários ###\n\n"); // Inicio do Menu
-	    printf("Escolha a opção desejada do menu!\n\n");
-     	printf("\t1 - Incluir Funcionário\n");
-       	printf("\t2 - Consultar Funcionário\n");
-	    printf("\t3 - Excluir Funcionário\n\n");
-	    printf("\t4 - Sair do Sistema\n\n");
-	    printf("Opção:"); // Fim do Menu
-	
-	    scanf("%d", &opcao); // Armazenando a escolha do usuario 
-	
-	    system("cls");  // CLS serve para limpar a tela
-	    
-	    switch(opcao) 
+		system("cls"); 	
+	    for(laco=1;laco=1;) // Inicio do processo de repetição
 	    {
-	    	// Inicio da escolha do usuario/ menu
-	    	case 1:
-	    	incluir();
-	        break; // Break encerra cada opção
-	        
-	        case 2:
-	        consultar();
-		    break; // Break encerra cada opção
-		    
-		    case 3:
-		    excluir();	
-		    break; // Break encerra cada opção
-		    
-		    case 4:
-		    printf("Obrigado por utilizar o sistema!\n");
-		    return 0;
-		    break;
-		    
-		    default:
-		    printf("Essa opção não está disponivel!\n"); // Informando o usuario 
-		    system("pause"); // Pausa a tela para visualização do usuario
-		    break; // Break encerra cada opção
-		    
-		} // Fim da escolha usuario/menu
-	 	
-} // Fim do processo de repetição
-
 	
-}
+	        system("cls"); // CLS serve para limpar a tela
+	
+	     	setlocale(LC_ALL, "Portuguese"); // Definindo a linguagem
+	
+	        printf("### Sistema de Controle de Funcionários ###\n\n"); // Inicio do Menu
+	        printf("Escolha a opção desejada do menu!\n\n");
+     	    printf("\t1 - Incluir Funcionário\n");
+       	    printf("\t2 - Consultar Funcionário\n");
+	        printf("\t3 - Excluir Funcionário\n\n");
+	        printf("\t4 - Sair do Sistema\n\n");
+	        printf("Opção:"); // Fim do Menu
+	
+	        scanf("%d", &opcao); // Armazenando a escolha do usuario 
+	
+	        system("cls");  // CLS serve para limpar a tela
+	    
+	        switch(opcao) 
+	        {
+	    	    // Inicio da escolha do usuario/ menu
+	    	    case 1:
+	    	    incluir();
+	            break; // Break encerra cada opção
+	        
+	            case 2:
+	            consultar();
+		        break; // Break encerra cada opção
+		    
+		        case 3:
+		        excluir();	
+		        break; // Break encerra cada opção
+		    
+		        case 4:
+		        printf("Obrigado por utilizar o sistema!\n");
+		        return 0;
+		        break;
+		    
+		        default:
+		        printf("Essa opção não está disponivel!\n"); // Informando o usuario 
+		        system("pause"); // Pausa a tela para visualização do usuario
+		        break; // Break encerra cada opção
+		 	} // Fim da escolha usuario/menu
+		} // Fim do processo de repetição
+    }
+    
+    else
+        printf("Senha incorreta!");
+} 
