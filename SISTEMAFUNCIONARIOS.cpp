@@ -73,6 +73,7 @@ int consultar()
 	FILE *file; // Cria o arquivo no banco de dados
 	file = fopen(cpf, "r"); // R significa ler o arquivo, abrindo
 	
+	
 	if(file == NULL) // Null significa nulo
 	{
 		printf("CPF não localizado no sistema!\n"); // Informando o usuario
@@ -83,7 +84,8 @@ int consultar()
 		printf("\nEssas são as informações cadastradas: "); // Informando ao usuario
 		printf("%s", conteudo);
 		printf("\n\n");
-	}	
+	}
+	fclose(file);	
     system("pause");  // Para parar a tela ao usuario	
 }
 
@@ -99,18 +101,21 @@ int excluir()
 	remove(cpf); // excluindo o dado
 	
 	FILE *file; // Cria o arquivo no banco de dados
-	file = fopen(cpf, "r"); //  R significa ler o arquivo, abrindo
+	file = fopen(cpf, "r"); //  R significa ler o arquivo, abrindo'		
 		
 	if(file == NULL) // Null significa nulo
 	{
 		printf("Esse CPF não se encontra cadastrado no sistema!\n"); // Informando o usuario
+		
 	}	
 	
 	while(fgets(cpf, 40, file) != NULL)// lendo a varivael cpf dentro da pasta arquivo
 	{
 		printf("CPF excluido com sucesso!\n"); // Informando o usuario
+		system("pause");  // Para parar a tela ao usuario
 	}	
-    system("pause");  // Para parar a tela ao usuario	
+    fclose(file);
+	system("pause");	
 }
 
 int main() // Definindo a Linguagem
